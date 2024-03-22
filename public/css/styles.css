@@ -1,0 +1,25 @@
+.navbar-size {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.img-size {
+  height: 56px;
+  margin: 4px 10px 0px;
+}
+.main-body {
+  background-color: #f28487;
+}
+
+.demo-text {
+  font-size: 22px;
+  margin: 0px 200px;
+}
+
+.demo-img-size {
+  padding: 20px 10px 40px;
+}
+
+.cat-img-size {
+  height: 190px;
+}
