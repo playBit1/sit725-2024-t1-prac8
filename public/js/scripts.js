@@ -28,7 +28,7 @@ function createCard(cardData) {
 }
 
 const getCards = () => {
-  $.get('/api/cars', (response) => {
+  $.get('/api/cats', (response) => {
     if(response.statusCode==200){
       const cardContainer = document.getElementById('CarCards');
       let catCardList = response.data
@@ -70,8 +70,4 @@ const getCards = () => {
     var instance = M.Modal.getInstance(document.getElementById('modal1'));
     instance.close();
 
-    getCards()
-    getCards()
-    getCards()
-    getCards()
   }
