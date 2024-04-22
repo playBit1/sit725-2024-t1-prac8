@@ -12,6 +12,24 @@ const getAllCats = async (req,res) => {
     })
 }
 
+const deleteCat = async (req,res) => {
+    let cat = await Cat.create();
+    const newCat = req.body;
+    try {
+        cat.deleteCatFromDatabase(newCat);
+        res.json({
+            statusCode: 200,
+            message: "Success"
+        })
+    } catch (err) {
+        console.error(err);
+        res.json({
+            statusCode: 500,
+            message: "Error deleting record"
+        })
+    }
+}
+
 const saveCat = async (req, res)  => {
     let cat = await Cat.create();
     const newCat = req.body;
@@ -33,4 +51,4 @@ const saveCat = async (req, res)  => {
 }
 
 
-module.exports = {getAllCats, saveCat}
+module.exports = {getAllCats, saveCat, deleteCat}

@@ -18,7 +18,12 @@ class Cat {
     }
     
     async saveCatsToDatabase(newCat) {
-        await this.catCollection.insertOne(newCat);
+        let status = await this.catCollection.insertOne(newCat)
+        return status.acknowledged
+    }
+
+    async deleteCatFromDatabase(cat) {
+        await this.catCollection.deleteOne(cat);
     }
 
 }
