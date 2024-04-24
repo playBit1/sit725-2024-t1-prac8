@@ -38,8 +38,6 @@ const getCards = () => {
     if(response.statusCode==200){
       const cardContainer = document.getElementById('CarCards');
       let catCardList = response.data
-
-      console.log(response.data)
       cardContainer.innerHTML = '';
 
       catCardList.forEach(cardData => {
@@ -61,19 +59,24 @@ const getCards = () => {
       path : document.getElementById('path').value,
       description : document.getElementById('description').value
     };
+    let instance = M.Modal.getInstance(document.getElementById('modal1'));
   
     console.log("Form Data Submitted: ", formData)
 
     $.post("/api/cats", formData, function(data, status){
-      status === "success" ? (alert("Card Information Saved!"), getCards()): alert("Error, please contact car support!")
+      status === "success" ? 
+        (
+          alert("Cat posted!"), 
+          getCards(),
+          instance.close()
+        )
+      : 
+        alert("Error, please contact car support!")
     })
 
     document.getElementById('title').value = '';
     document.getElementById('color').value = '';
     document.getElementById('path').value = '';
     document.getElementById('description').value = '';
-
-    var instance = M.Modal.getInstance(document.getElementById('modal1'));
-    instance.close();
 
   }

@@ -21,11 +21,11 @@ http.listen(3000, () => {
 });
 
 io.on('connection', (socket) => { 
-    console.log('something'); 
+    console.log('User Connected!');
     socket.on('disconnect', () => { 
         console.log('user disconnected'); }
     )
-    
+
     setInterval(()=>{
         socket.emit('number', parseInt(Math.random()*10))
     },1000)
