@@ -68,15 +68,14 @@ const getCards = () => {
         (
           alert("Cat posted!"), 
           getCards(),
-          instance.close()
+          instance.close(),
+          document.getElementById('title').value = '',
+          document.getElementById('color').value = '',
+          document.getElementById('path').value = '',
+          document.getElementById('description').value = ''
         )
       : 
         alert("Error, please contact car support!")
     })
-
-    document.getElementById('title').value = '';
-    document.getElementById('color').value = '';
-    document.getElementById('path').value = '';
-    document.getElementById('description').value = '';
 
   }
